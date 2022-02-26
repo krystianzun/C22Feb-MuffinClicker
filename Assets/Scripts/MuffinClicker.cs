@@ -84,7 +84,7 @@ public class MuffinClicker : MonoBehaviour
         muffinRewardText.text = $"+{addedMuffins}";
         muffinRewardText.transform.localPosition = GetRandomVector2(minXPos, maxXPos, minYPos, maxYPos);
 
-        biscuitBiteSound.PlayOneShot(biscuitBiteSound.clip);
+        // biscuitBiteSound.PlayOneShot(biscuitBiteSound.clip);
     }
 
 
