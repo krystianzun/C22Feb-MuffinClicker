@@ -280,6 +280,7 @@ GameObject:
   - component: {fileID: 436119270}
   - component: {fileID: 436119271}
   - component: {fileID: 436119272}
+  - component: {fileID: 436119273}
   m_Layer: 5
   m_Name: MuffinContent
   m_TagString: Untagged
@@ -321,16 +322,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79eff2b6f5c55341b2c215f79bb1052, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  muffinsPerClick: 1
-  critChance: 0.01
-  totalMuffinsText: {fileID: 5343600014934951638}
-  spinLights:
-  - {fileID: 1594047314}
-  - {fileID: 28660337}
-  spinSpeed: 100
-  scaleOffset: 1
-  scaleAmplitude: 0.05
-  scaleTime: 5
   textRewardPrefab: {fileID: 2813547723645897196, guid: 91df3c9f714705b41a89f56f7a7dcd7b, type: 3}
   minXPos: -300
   maxXPos: 300
@@ -433,6 +424,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &436119273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436119269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bc663d78d1f78547beae41bed487054, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spinTransforms: []
+  spinSpeed: 100
+  scaleOffset: 1
+  scaleAmplitude: 0.1
+  scaleTime: 5
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -805,6 +813,51 @@ LightingSettings:
   m_PVRFilteringAtrousPositionSigmaDirect: 0.5
   m_PVRFilteringAtrousPositionSigmaIndirect: 2
   m_PVRFilteringAtrousPositionSigmaAO: 1
+--- !u!1 &1186391068
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1186391070}
+  - component: {fileID: 1186391069}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1186391069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1186391068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 516d04bf7d864ce4d85095dd36ac315c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  muffinsPerClick: 1
+  critChance: 0.01
+--- !u!4 &1186391070
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1186391068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1330.5493, y: 542.42065, z: -887.8529}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1532041773 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6216710413809592862, guid: a419d27ab3f522742a3dd9672e2fda7c, type: 3}
@@ -944,6 +997,24 @@ MonoBehaviour:
   m_FlexibleWidth: 1
   m_FlexibleHeight: 1
   m_LayoutPriority: 1
+--- !u!1 &1724608396 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5343600013642367996, guid: 29bd5d33881452446a3a3d275aa59cbb, type: 3}
+  m_PrefabInstance: {fileID: 5343600014934951637}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1724608397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724608396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1de123922c33b149966eae7be069738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalMuffinsText: {fileID: 5343600014934951638}
 --- !u!1 &1897458477
 GameObject:
   m_ObjectHideFlags: 0
