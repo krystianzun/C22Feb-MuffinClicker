@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TimedSpawn : MonoBehaviour
+public class CandySpawn : MonoBehaviour
 {
 
     [SerializeField]
@@ -18,12 +18,17 @@ public class TimedSpawn : MonoBehaviour
     public GameObject Spawnee;
 
 
-    void Start()
+    private void Start()
     {
         InvokeRepeating("SpawnObject", spawnTime, spawnDelay);
     }
 
-    public void SpawnObject()
+    private void Update()
+    {
+        spawnDelay = Random.Range(1, 10);
+    }
+
+    private void SpawnObject()
     {
         Instantiate(Spawnee, transform);
         Spawnee.transform.localPosition = GetRandomVector2(minXPos, maxXPos, minYPos, maxYPos);

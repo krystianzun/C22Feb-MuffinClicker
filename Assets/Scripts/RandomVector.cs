@@ -22,4 +22,9 @@ public class RandomVector : MonoBehaviour
         randomVector.y = Random.Range(minY, maxY);
         return randomVector;
     }
+
+    internal void GetRandomVector2()
+    {
+        throw new System.NotImplementedException();
+    }
 }
