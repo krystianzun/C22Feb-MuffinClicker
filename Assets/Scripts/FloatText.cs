@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class FloatingText : MonoBehaviour
+public class FloatText : MonoBehaviour
 {
     [SerializeField]
     float minMoveSpeed = 100;
@@ -13,18 +13,11 @@ public class FloatingText : MonoBehaviour
 
     float moveSpeed;
 
-    [SerializeField]
-    TMP_Text tmp;
-
-    float timer;
-
-    Color startColor;
-
 
     private void Awake()
     {
         moveSpeed = Random.Range(minMoveSpeed, maxMoveSpeed);
-        startColor = tmp.color;    
+
     }
 
 
@@ -33,15 +26,5 @@ public class FloatingText : MonoBehaviour
         // Float it upwards
         transform.position += new Vector3(0, moveSpeed * Time.deltaTime, 0);
 
-        // Fade it
-        timer += Time.deltaTime;
-        tmp.color = Color.Lerp(startColor, Color.clear, timer);
-
-        // Destroy it
-        if (tmp.color.a <= 0)
-        {
-            Destroy(gameObject);
-        }
-        
     }
 }

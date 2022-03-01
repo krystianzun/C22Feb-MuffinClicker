@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 98540300322911503}
   - component: {fileID: 2813547723645897196}
   - component: {fileID: 6009766135966729187}
+  - component: {fileID: -4656645755348755913}
+  - component: {fileID: 7195587901402266695}
   m_Layer: 5
   m_Name: MuffinClickReward
   m_TagString: Untagged
@@ -147,6 +149,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 584712f94daf3ff44889ad921a04d1a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minimumMoveSpeed: 100
-  maximumMoveSpeed: 1000
+  minMoveSpeed: 100
+  maxMoveSpeed: 400
+--- !u!114 &-4656645755348755913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1830297683697775921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0b7adfdcf287b44e97578575d838a78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tmp: {fileID: 2813547723645897196}
+--- !u!114 &7195587901402266695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1830297683697775921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67189bfe4b32e134cb83156e2a3ceb05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   tmp: {fileID: 2813547723645897196}
