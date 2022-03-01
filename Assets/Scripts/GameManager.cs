@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class GameManager : MonoBehaviour
@@ -9,6 +10,8 @@ public class GameManager : MonoBehaviour
 
     int totalMuffins;
 
+    [SerializeField]
+    Button candyButton;
 
     public int TotalMuffins
     {
@@ -33,6 +36,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     float critChance = 0.01f;
 
+    [SerializeField]
+    int candyPerClick = 100;
+
 
     public int AddMuffins()
     {
@@ -52,6 +58,8 @@ public class GameManager : MonoBehaviour
         TotalMuffins += addedMuffins;
         return addedMuffins;
     }
+
+    public int AddCandies => TotalMuffins += candyPerClick;
 
 
     private void Awake()

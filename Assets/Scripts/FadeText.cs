@@ -20,7 +20,6 @@ public class FadeText : MonoBehaviour
         Singleton = this;
     }
 
-
     void Update()
     {
         // Fade it

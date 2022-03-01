@@ -17,7 +17,6 @@ public class FloatText : MonoBehaviour
     private void Awake()
     {
         moveSpeed = Random.Range(minMoveSpeed, maxMoveSpeed);
-
     }
 
 
@@ -25,6 +24,5 @@ public class FloatText : MonoBehaviour
     {
         // Float it upwards
         transform.position += new Vector3(0, moveSpeed * Time.deltaTime, 0);
-
     }
 }

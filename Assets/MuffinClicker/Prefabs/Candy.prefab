@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1738154099243860864}
   - component: {fileID: 1738154099243860867}
   - component: {fileID: 5870803205536453226}
+  - component: {fileID: -1832893089245246422}
   m_Layer: 5
   m_Name: Candy
   m_TagString: Untagged
@@ -36,7 +37,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 372.17633, y: 366.3664}
+  m_AnchoredPosition: {x: -299.47534, y: 292.6813}
   m_SizeDelta: {x: 273.4595, y: 273.4595}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1738154099243860865
@@ -133,6 +134,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: -1832893089245246422}
+        m_TargetAssemblyTypeName: CandyClicker, Assembly-CSharp
+        m_MethodName: OnCandyClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5870803205536453226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,3 +158,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30f972cb1a74ad84cbf6046264e6d5d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-1832893089245246422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738154099243860869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11c19524595443f4ba1f840eefad835d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  candyPerClick: 100
