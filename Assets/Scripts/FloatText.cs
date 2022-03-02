@@ -19,7 +19,6 @@ public class FloatText : MonoBehaviour
         moveSpeed = Random.Range(minMoveSpeed, maxMoveSpeed);
     }
 
-
     void Update()
     {
         // Float it upwards

@@ -842,8 +842,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 516d04bf7d864ce4d85095dd36ac315c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  candyButton: {fileID: 0}
   muffinsPerClick: 1
   critChance: 0.01
+  candyPerClick: 100
 --- !u!4 &1186391070
 Transform:
   m_ObjectHideFlags: 0
@@ -995,7 +997,9 @@ MonoBehaviour:
   minYPos: -400
   maxYPos: 400
   spawnTime: 1
-  spawnDelay: 3
+  spawnDelay: 12
+  minTime: 5
+  maxTime: 10
   Spawnee: {fileID: 1738154099243860869, guid: ce114ca9b14c32d4c879218fed16d7d5, type: 3}
 --- !u!114 &1705359031
 MonoBehaviour:

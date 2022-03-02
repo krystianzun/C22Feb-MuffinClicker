@@ -14,6 +14,9 @@ public class SpawnRandomTime : MonoBehaviour
     [SerializeField]
     float spawnDelay;
 
+    [SerializeField]
+    float minTime, maxTime;
+
     // Reference to the Prefab. Drag a Prefab into this field in the Inspector.
     public GameObject Spawnee;
 
@@ -25,7 +28,7 @@ public class SpawnRandomTime : MonoBehaviour
 
     private void Update()
     {
-        spawnDelay = Random.Range(1, 10);
+        spawnDelay = Random.Range(minTime, maxTime);
     }
 
     private void SpawnObject()
@@ -34,6 +37,8 @@ public class SpawnRandomTime : MonoBehaviour
         Spawnee.transform.localPosition = GetRandomVector2(minXPos, maxXPos, minYPos, maxYPos);
     } 
 
+    // This exists in MuffinClicker as well and could be potentially refactored 
+    // to not duplicate the code
     Vector2 GetRandomVector2(float minX, float maxX, float minY, float maxY)
     {
         Vector2 randomVector;

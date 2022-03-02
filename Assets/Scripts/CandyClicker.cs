@@ -12,8 +12,7 @@ public class CandyClicker : MonoBehaviour
     public void OnCandyClicked()
     {
         Debug.Log("Candy Clicked");
-
-        float addedCandies = GameManager.Singleton.AddCandies;
+        _ = GameManager.Singleton.AddCandies;
 
     }
 }
