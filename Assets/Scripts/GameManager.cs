@@ -6,12 +6,18 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    
+    
+    const string SaveSlot = "SaveData";
+
     public static GameManager Singleton;
 
     int totalMuffins;
 
     [SerializeField]
     Button candyButton;
+
+
 
     public int TotalMuffins
     {
@@ -67,4 +73,79 @@ public class GameManager : MonoBehaviour
         Singleton = this;    
     }
 
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.S)) 
+        {
+            Save();
+        }
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            Load();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            TotalMuffins = 0;
+            muffinsPerClick = 1;
+        }
+    }
+
+    private void Start()
+    {
+        Load();
+    }
+
+    private void OnApplicationQuit()
+    {
+        Save();
+    }
+
+    private void Save()
+    {
+        SaveData saveData;
+        saveData.totalMuffins = TotalMuffins;
+        saveData.muffinsPerClick = muffinsPerClick;
+        saveData.candyPerClick = candyPerClick;
+
+        // Serialize 
+        string serializedData = JsonUtility.ToJson(saveData);
+
+        // Save to disk
+        PlayerPrefs.SetString(SaveSlot, serializedData);
+    }
+
+    private void Load()
+    {
+        if (!PlayerPrefs.HasKey(SaveSlot))
+        {
+            return;
+        }
+
+        // Load from disk
+        string loadData = PlayerPrefs.GetString(SaveSlot);
+
+        // Deserialize
+        SaveData desesrializedData = JsonUtility.FromJson<SaveData>(loadData);
+
+        // Applying the data
+        TotalMuffins = desesrializedData.totalMuffins;
+        muffinsPerClick = desesrializedData.muffinsPerClick;
+        candyPerClick = desesrializedData.candyPerClick;
+    }
+
+    [System.Serializable]
+    private struct SaveData
+    {
+        public int totalMuffins;
+        public int muffinsPerClick;
+        public int candyPerClick;
+    }
 }
