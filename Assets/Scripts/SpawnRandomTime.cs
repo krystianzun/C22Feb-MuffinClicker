@@ -9,26 +9,33 @@ public class SpawnRandomTime : MonoBehaviour
     float minXPos, maxXPos, minYPos, maxYPos;
 
     [SerializeField]
-    float spawnTime;
-
-    [SerializeField]
-    float spawnDelay;
-
-    [SerializeField]
     float minTime, maxTime;
 
     // Reference to the Prefab. Drag a Prefab into this field in the Inspector.
     public GameObject Spawnee;
 
+    float timer = 0f;
+
+    [SerializeField]
+    float spawnFrequency;
 
     private void Start()
     {
-        InvokeRepeating("SpawnObject", spawnTime, spawnDelay);
+        spawnFrequency = Random.Range(minTime, maxTime);
     }
 
     private void Update()
     {
-        spawnDelay = Random.Range(minTime, maxTime);
+        timer += Time.deltaTime;
+
+        if (timer >= spawnFrequency)
+        {
+            spawnFrequency = Random.Range(minTime, maxTime);
+
+            SpawnObject();
+
+            timer = 0f;
+        }
     }
 
     private void SpawnObject()
