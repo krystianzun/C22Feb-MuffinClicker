@@ -8,7 +8,6 @@ public class SpawnRandomTime : MonoBehaviour
     [SerializeField]
     float minXPos, maxXPos, minYPos, maxYPos;
 
-
     [SerializeField]
     float minTime, maxTime;
 
@@ -20,6 +19,10 @@ public class SpawnRandomTime : MonoBehaviour
     [SerializeField]
     float spawnFrequency;
 
+    private void Start()
+    {
+        spawnFrequency = Random.Range(minTime, maxTime);
+    }
 
     private void Update()
     {
