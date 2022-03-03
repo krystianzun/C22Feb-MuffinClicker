@@ -65,7 +65,16 @@ public class GameManager : MonoBehaviour
         return addedMuffins;
     }
 
-    public int AddCandies => TotalMuffins += candyPerClick;
+    //public int AddCandies => TotalMuffins += candyPerClick;
+
+    public int AddCandies()
+    {
+        int addedCandies;
+        addedCandies = candyPerClick;
+
+        TotalMuffins += addedCandies;
+        return addedCandies;
+    }
 
 
     private void Awake()

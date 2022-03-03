@@ -436,8 +436,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bc663d78d1f78547beae41bed487054, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spinTransforms: []
-  spinSpeed: 100
+  spinTransforms:
+  - {fileID: 1594047314}
+  - {fileID: 28660337}
+  spinSpeed: 80
   scaleOffset: 1
   scaleAmplitude: 0.1
   scaleTime: 5
