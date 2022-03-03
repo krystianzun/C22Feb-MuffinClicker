@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class RandomVector2 : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static Vector2 RandomVector2(float minX, float maxX, float minY, float maxY)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Vector2 randomVector;
+        randomVector.x = Random.Range(minX, maxX);
+        randomVector.y = Random.Range(minY, maxY);
+        return randomVector;
     }
 }

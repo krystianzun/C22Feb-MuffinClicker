@@ -34,16 +34,6 @@ public class SpawnRandomTime : MonoBehaviour
     private void SpawnObject()
     {
         Instantiate(Spawnee, transform);
-        Spawnee.transform.localPosition = GetRandomVector2(minXPos, maxXPos, minYPos, maxYPos);
+        Spawnee.transform.localPosition = RandomVector2.GetRandomVector2(minXPos, maxXPos, minYPos, maxYPos);
     } 
-
-    // This exists in MuffinClicker as well and could be potentially refactored 
-    // to not duplicate the code
-    Vector2 GetRandomVector2(float minX, float maxX, float minY, float maxY)
-    {
-        Vector2 randomVector;
-        randomVector.x = Random.Range(minX, maxX);
-        randomVector.y = Random.Range(minY, maxY);
-        return randomVector;
-    }
 }
