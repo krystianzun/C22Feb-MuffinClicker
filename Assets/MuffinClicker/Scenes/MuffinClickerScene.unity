@@ -998,11 +998,10 @@ MonoBehaviour:
   maxXPos: 800
   minYPos: -400
   maxYPos: 400
-  spawnTime: 1
-  spawnDelay: 12
-  minTime: 5
-  maxTime: 10
+  minTime: 10
+  maxTime: 15
   Spawnee: {fileID: 1738154099243860869, guid: ce114ca9b14c32d4c879218fed16d7d5, type: 3}
+  spawnFrequency: 0
 --- !u!114 &1705359031
 MonoBehaviour:
   m_ObjectHideFlags: 0
