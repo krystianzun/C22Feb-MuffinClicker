@@ -16,15 +16,7 @@ public class RandomDirection : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        movement = GetRandomDirection(minXDir, maxXDir, minYDir, maxYDir);
+        movement = RandomVector2.GetRandomVector2(minXDir, maxXDir, minYDir, maxYDir);
         rb.AddForce(movement * Speed);
-    }
-
-    Vector2 GetRandomDirection(float minX, float maxX, float minY, float maxY)
-    {
-        Vector2 randomVector;
-        randomVector.x = Random.Range(minX, maxX);
-        randomVector.y = Random.Range(minY, maxY);
-        return randomVector;
     }
 }
