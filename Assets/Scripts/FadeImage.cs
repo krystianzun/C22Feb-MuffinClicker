@@ -10,17 +10,17 @@ public class FadeImage : MonoBehaviour
     Color startColor;
 
     [SerializeField]
-    Image image;
+    Image candyImage;
 
     private void Awake()
     {
-        image = GetComponent<Image>();
+        candyImage = GetComponent<Image>();
     }
 
     public void FadeClick()
     {
         // Fade it
         timer += Time.deltaTime;
-        image.color = Color.Lerp(startColor, Color.clear, timer);
+        candyImage.color = Color.Lerp(startColor, Color.clear, timer);
     }
 }

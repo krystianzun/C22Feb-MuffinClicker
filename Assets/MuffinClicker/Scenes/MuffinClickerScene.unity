@@ -994,10 +994,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbcc951efb53c404396f3d1a33cc341c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minXPos: -800
-  maxXPos: 800
-  minYPos: -400
-  maxYPos: 400
+  minXPos: -600
+  maxXPos: 600
+  minYPos: -300
+  maxYPos: 300
   minTime: 10
   maxTime: 15
   Spawnee: {fileID: 1738154099243860869, guid: ce114ca9b14c32d4c879218fed16d7d5, type: 3}

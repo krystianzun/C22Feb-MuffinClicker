@@ -19,9 +19,10 @@ public class SpawnRandomTime : MonoBehaviour
     [SerializeField]
     float spawnFrequency;
 
+
     private void Start()
     {
-        spawnFrequency = Random.Range(minTime, maxTime);
+        GetRandomSpawnTime();
     }
 
     private void Update()
@@ -30,7 +31,7 @@ public class SpawnRandomTime : MonoBehaviour
 
         if (timer >= spawnFrequency)
         {
-            spawnFrequency = Random.Range(minTime, maxTime);
+            GetRandomSpawnTime();
 
             SpawnObject();
 
@@ -41,6 +42,11 @@ public class SpawnRandomTime : MonoBehaviour
     private void SpawnObject()
     {
         Instantiate(Spawnee, transform);
-        Spawnee.transform.localPosition = RandomVector2.GetRandomVector2(minXPos, maxXPos, minYPos, maxYPos);
+        Spawnee.transform.localPosition = Tools.GetRandomVector2(minXPos, maxXPos, minYPos, maxYPos);
     } 
+
+    private void GetRandomSpawnTime() => 
+        spawnFrequency = Random.Range(minTime, maxTime);
+
+            
 }
