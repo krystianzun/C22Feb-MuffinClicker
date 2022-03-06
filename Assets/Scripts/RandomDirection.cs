@@ -16,7 +16,7 @@ public class RandomDirection : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        movement = RandomVector2.GetRandomVector2(minXDir, maxXDir, minYDir, maxYDir).normalized;
+        movement = Tools.GetRandomVector2(minXDir, maxXDir, minYDir, maxYDir).normalized;
         rb.AddForce(movement * Speed);
     }
 }

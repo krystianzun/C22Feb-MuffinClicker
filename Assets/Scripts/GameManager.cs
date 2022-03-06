@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
     public int AddCandies()
     {
         int addedCandies;
-        addedCandies = candyPerClick;
+        addedCandies = muffinsPerClick * 100;
 
         TotalMuffins += addedCandies;
         return addedCandies;

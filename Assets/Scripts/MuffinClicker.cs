@@ -32,7 +32,7 @@ public class MuffinClicker : MonoBehaviour
         // Create reward prefab
         TMP_Text muffinRewardText = Instantiate(textRewardPrefab, transform);
         muffinRewardText.text = $"+{addedMuffins}";
-        muffinRewardText.transform.localPosition = RandomVector2.GetRandomVector2(minXPos, maxXPos, minYPos, maxYPos);
+        muffinRewardText.transform.localPosition = Tools.GetRandomVector2(minXPos, maxXPos, minYPos, maxYPos);
 
         biscuitBiteSound.PlayOneShot(biscuitBiteSound.clip);
     }

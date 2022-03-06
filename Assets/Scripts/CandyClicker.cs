@@ -35,8 +35,6 @@ public class CandyClicker : MonoBehaviour
         // Create reward prefab
         TMP_Text muffinRewardText = Instantiate(textRewardPrefab, transform);
         muffinRewardText.text = $"+{addedCandies}";
-        muffinRewardText.transform.localPosition = RandomVector2.GetRandomVector2(minXPos, maxXPos, minYPos, maxYPos);
-
-        
+        muffinRewardText.transform.localPosition = Tools.GetRandomVector2(minXPos, maxXPos, minYPos, maxYPos);
     }
 }
