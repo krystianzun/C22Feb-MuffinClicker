@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,8 @@ public class GameManager : MonoBehaviour
     const string SaveSlot = "SaveData";
 
     public static GameManager Singleton;
+
+    public event Action OnTotalMuffinsChanged;
 
     int totalMuffins;
 
@@ -28,9 +31,7 @@ public class GameManager : MonoBehaviour
         private set
         {
             totalMuffins = value;
-
-            // Update Header
-            HeaderUI.Singleton.UpdateUI();
+            OnTotalMuffinsChanged?.Invoke();
         }
     }
 
@@ -50,7 +51,7 @@ public class GameManager : MonoBehaviour
     {
         int addedMuffins;
 
-        if (Random.value <= critChance)
+        if (UnityEngine.Random.value <= critChance)
         {
             addedMuffins = muffinsPerClick * 10;
             //totalMuffins += muffinsPerClick * 10;
@@ -74,6 +75,17 @@ public class GameManager : MonoBehaviour
 
         TotalMuffins += addedCandies;
         return addedCandies;
+    }
+
+    public bool TryPurchaseUpgrade(int currentCost)
+    {
+        if (TotalMuffins >= currentCost)
+        {
+            TotalMuffins -= currentCost;
+            return true;
+        }
+
+        return false;
     }
 
 

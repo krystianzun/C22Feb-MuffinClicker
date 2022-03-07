@@ -4,19 +4,23 @@ using UnityEngine;
 public class HeaderUI : MonoBehaviour
 {
 
-    public static HeaderUI Singleton;
-
     [SerializeField]
     TMP_Text totalMuffinsText;
 
 
     private void Awake()
     {
-        Singleton = this;
+        
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.Singleton.OnTotalMuffinsChanged -= UpdateUI;
     }
 
     private void Start()
     {
+        GameManager.Singleton.OnTotalMuffinsChanged += UpdateUI;
         UpdateUI();
     }
 
