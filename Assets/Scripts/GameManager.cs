@@ -7,8 +7,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    
-    
+   
     const string SaveSlot = "SaveData";
 
     public static GameManager Singleton;
@@ -82,6 +81,10 @@ public class GameManager : MonoBehaviour
         if (TotalMuffins >= currentCost)
         {
             TotalMuffins -= currentCost;
+
+            // Implement Upgrades here
+            muffinsPerClick = currentCost / 2;
+
             return true;
         }
 

@@ -72,7 +72,6 @@ public class UpgradeButton : MonoBehaviour
         GameManager.Singleton.OnTotalMuffinsChanged += TotalMuffinsChanged;
         Level = 0;
         UpdateCostText();
-        
     }
 
 
