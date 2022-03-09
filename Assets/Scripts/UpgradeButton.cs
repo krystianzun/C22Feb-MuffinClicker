@@ -19,7 +19,9 @@ public class UpgradeButton : MonoBehaviour
         get
         {
             // it can be a math equation instead of manual
-            return 5 + _level * 5;
+            //return 5 + _level * 5;
+
+            return 5+ (int)Mathf.Pow(_level, 4);
 
             //int arrayLength = _costPerLevel.Length;
 

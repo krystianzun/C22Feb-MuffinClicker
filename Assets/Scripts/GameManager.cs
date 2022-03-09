@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviour
             TotalMuffins -= currentCost;
 
             // Implement Upgrades here
-            muffinsPerClick = currentCost / 2;
+            muffinsPerClick = currentCost / 4;
 
             return true;
         }
