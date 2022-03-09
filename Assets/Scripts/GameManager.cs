@@ -118,6 +118,7 @@ public class GameManager : MonoBehaviour
     {
         switch (upgradeType)
         {
+
             case UpgradeType.Muffin:
                 muffinsPerClick = 1 + level * 3;
                 break;
@@ -126,6 +127,7 @@ public class GameManager : MonoBehaviour
                 OnMuffinsPerSecondChanged?.Invoke(muffinsPerSecond);
                 break;
             case UpgradeType.FancyMuffin:
+                muffinsPerClick = 1 + level * 3;
                 break;
         }
     }
