@@ -13,12 +13,15 @@ public class GameManager : MonoBehaviour
     public static GameManager Singleton;
 
     public event Action OnTotalMuffinsChanged;
+    public event Action<int> OnMuffinsPerSecondChanged;
 
     int totalMuffins;
 
     [SerializeField]
     Button candyButton;
 
+    float muffinTimer;
+    int muffinsPerSecond = 0;
 
 
     public int TotalMuffins
@@ -76,14 +79,34 @@ public class GameManager : MonoBehaviour
         return addedCandies;
     }
 
-    public bool TryPurchaseUpgrade(int currentCost)
+    public bool TryPurchaseUpgrade(int currentCost, int level, UpgradeType upgradeType)
     {
         if (TotalMuffins >= currentCost)
         {
             TotalMuffins -= currentCost;
+            level++;
 
             // Implement Upgrades here
-            muffinsPerClick = currentCost / 4;
+            // muffinsPerClick = currentCost / 4;
+
+            //switch (upgradeType)
+            //{
+            //    case UpgradeType.Muffin:
+            //        muffinsPerClick = 1 + level * 3;
+            //        break;
+            //    case UpgradeType.SugarRush:
+            //        muffinsPerSecond = level * 2;
+            //        break;
+            //    default:
+            //        break;
+            //}
+
+            ApplyUpgrade(level, upgradeType);
+
+            //if (upgradeType == UpgradeType.Muffin)
+            //    muffinsPerClick = 1 + level * 3;
+            //else
+            //    muffinsPerSecond = level * 2;
 
             return true;
         }
@@ -91,6 +114,21 @@ public class GameManager : MonoBehaviour
         return false;
     }
 
+    private void ApplyUpgrade(int level, UpgradeType upgradeType)
+    {
+        switch (upgradeType)
+        {
+            case UpgradeType.Muffin:
+                muffinsPerClick = 1 + level * 3;
+                break;
+            case UpgradeType.SugarRush:
+                muffinsPerSecond = level * 2;
+                OnMuffinsPerSecondChanged?.Invoke(muffinsPerSecond);
+                break;
+            case UpgradeType.FancyMuffin:
+                break;
+        }
+    }
 
     private void Awake()
     {
@@ -120,6 +158,15 @@ public class GameManager : MonoBehaviour
             TotalMuffins = 0;
             muffinsPerClick = 1;
         }
+
+        muffinTimer += Time.deltaTime;
+        if (muffinTimer >= 1)
+        {
+            // Reward the muffins
+            TotalMuffins += muffinsPerSecond;
+
+            muffinTimer--;
+        }
     }
 
     private void Start()
@@ -136,8 +183,18 @@ public class GameManager : MonoBehaviour
     {
         SaveData saveData;
         saveData.totalMuffins = TotalMuffins;
-        saveData.muffinsPerClick = muffinsPerClick;
         saveData.candyPerClick = candyPerClick;
+
+        UpgradeButton[] buttons = FindObjectsOfType<UpgradeButton>();
+
+        saveData.upgrades = new List<SavableUpgrade>(buttons.Length);
+        foreach (UpgradeButton button in buttons)
+        {
+            SavableUpgrade upgrade;
+            upgrade.upgradeType = button.upgradeType;
+            upgrade.level = button.Level;
+            saveData.upgrades.Add(upgrade);
+        }
 
         // Serialize 
         string serializedData = JsonUtility.ToJson(saveData);
@@ -161,15 +218,30 @@ public class GameManager : MonoBehaviour
 
         // Applying the data
         TotalMuffins = desesrializedData.totalMuffins;
-        muffinsPerClick = desesrializedData.muffinsPerClick;
         candyPerClick = desesrializedData.candyPerClick;
+
+        UpgradeButton[] buttons = FindObjectsOfType<UpgradeButton>();
+
+        foreach (UpgradeButton button in buttons)
+        {
+            SavableUpgrade matchingUpgrade = desesrializedData.upgrades.Find(savableUpgrade => savableUpgrade.upgradeType == button.upgradeType);
+            button.Level = matchingUpgrade.level;
+            ApplyUpgrade(button.Level, button.upgradeType);
+        }
     }
 
-    [System.Serializable]
+    [Serializable]
     private struct SaveData
     {
         public int totalMuffins;
-        public int muffinsPerClick;
         public int candyPerClick;
+        public List<SavableUpgrade> upgrades;
+    }
+
+    [Serializable]
+    private struct SavableUpgrade
+    {
+        public UpgradeType upgradeType;
+        public int level;
     }
 }

@@ -6,8 +6,13 @@ using UnityEngine.UI;
 
 public class UpgradeButton : MonoBehaviour
 {
+    public UpgradeType upgradeType;
+
     [SerializeField]
     private TMP_Text _levelText, _costText;
+
+    [SerializeField]
+    private int _costScale = 4;
 
     //[SerializeField]
     //private int[] _costPerLevel;
@@ -19,9 +24,9 @@ public class UpgradeButton : MonoBehaviour
         get
         {
             // it can be a math equation instead of manual
-            //return 5 + _level * 5;
+            return 5 + _level * _costScale;
 
-            return 5+ (int)Mathf.Pow(_level, 4);
+            // return 5 + (int)Mathf.Pow(_level, 4);
 
             //int arrayLength = _costPerLevel.Length;
 
@@ -39,7 +44,7 @@ public class UpgradeButton : MonoBehaviour
         }
     }
 
-    private int Level
+   public int Level
     {
         get
         {
@@ -50,6 +55,7 @@ public class UpgradeButton : MonoBehaviour
         {
             _level = value;
             _levelText.text = _level.ToString();
+            _costText.text = CurrentCost.ToString();
         }
     }
 
@@ -73,21 +79,15 @@ public class UpgradeButton : MonoBehaviour
     {
         GameManager.Singleton.OnTotalMuffinsChanged += TotalMuffinsChanged;
         Level = 0;
-        UpdateCostText();
     }
-
-
-    private void UpdateCostText() =>
-        _costText.text = CurrentCost.ToString();
 
     private void OnUpgradeClicked()
     {
         Debug.Log("Upgrade Clicked");
 
-        if (GameManager.Singleton.TryPurchaseUpgrade(CurrentCost))
+        if (GameManager.Singleton.TryPurchaseUpgrade(CurrentCost, Level, upgradeType))
         {
             Level++;
-            UpdateCostText();
         }
     }
 }
