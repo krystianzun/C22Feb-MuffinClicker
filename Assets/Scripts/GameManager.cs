@@ -158,7 +158,14 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             TotalMuffins = 0;
-            muffinsPerClick = 1;
+
+            UpgradeButton[] buttons = FindObjectsOfType<UpgradeButton>();
+
+            foreach (UpgradeButton button in buttons)
+            {
+                button.Level = 0;
+                ApplyUpgrade(button.Level, button.upgradeType);
+            }
         }
 
         muffinTimer += Time.deltaTime;
